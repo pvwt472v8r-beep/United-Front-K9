@@ -1,0 +1,804 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>United Front K9 | Dog Training, Detection & Veteran Service Dogs</title>
+  <meta name="description" content="Obedience, control, odor detection and issue resolution for you, your pet, or your K9 partner in Florissant, CO." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #f6f4ef;
+      --surface: #ffffff;
+      --text: #1f2933;
+      --muted: #5f6b66;
+      --nav: #243029;
+      --accent: #6b8f71;
+      --accent-2: #b87a4b;
+      --border: #dde4dd;
+      --shadow: rgba(0, 0, 0, 0.10);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: "Inter", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+    }
+
+    h1, h2, h3, h4 {
+      font-family: "Playfair Display", serif;
+      color: var(--text);
+    }
+
+    img { max-width: 100%; display: block; }
+    a { text-decoration: none; color: inherit; }
+    button, input, textarea { font: inherit; }
+
+    .container {
+      width: min(1180px, calc(100% - 32px));
+      margin: 0 auto;
+    }
+
+    /* Header */
+    .topbar {
+      position: fixed;
+      inset: 0 0 auto 0;
+      z-index: 50;
+      background: rgba(36, 48, 41, 0.96);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .topbar-inner {
+      height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .brand {
+      font-family: "Playfair Display", serif;
+      font-size: clamp(1.8rem, 2vw, 2.4rem);
+      font-weight: 700;
+      color: #fff;
+      letter-spacing: 0.02em;
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      gap: 26px;
+    }
+
+    .nav a {
+      color: rgba(255,255,255,0.88);
+      font-weight: 600;
+      font-size: 0.95rem;
+      transition: color .2s ease;
+    }
+
+    .nav a:hover { color: var(--accent); }
+
+    /* Hero */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      overflow: hidden;
+      background: #111;
+    }
+
+    .hero video {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: saturate(0.9) brightness(0.72);
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(15,18,16,0.35), rgba(15,18,16,0.78));
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      width: min(920px, 92%);
+      text-align: center;
+      color: #fff;
+      padding: 110px 0 70px;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.5rem, 5.8vw, 5rem);
+      line-height: 1.02;
+      color: #fff;
+      margin-bottom: 18px;
+      letter-spacing: -0.03em;
+    }
+
+    .hero h1 em {
+      font-style: normal;
+      color: #dce7da;
+    }
+
+    .hero .divider {
+      width: min(760px, 90%);
+      height: 1px;
+      margin: 20px auto 18px;
+      background: rgba(255,255,255,0.75);
+    }
+
+    .hero p {
+      font-size: clamp(1.05rem, 1.4vw, 1.35rem);
+      color: #edf3ed;
+      margin-bottom: 28px;
+    }
+
+    .hero-actions {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 15px 30px;
+      border-radius: 8px;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+      border: 1px solid transparent;
+      transition: transform .2s ease, background .2s ease, color .2s ease, border-color .2s ease;
+      cursor: pointer;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #fff;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      background: #5f8165;
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: #fff;
+      border-color: rgba(255,255,255,0.7);
+    }
+
+    .btn-secondary:hover {
+      transform: translateY(-2px);
+      background: #fff;
+      color: var(--nav);
+    }
+
+    section {
+      padding: 92px 0;
+    }
+
+    .section-head {
+      text-align: center;
+      margin-bottom: 44px;
+    }
+
+    .section-head h2 {
+      font-size: clamp(2rem, 3.2vw, 3.2rem);
+      margin-bottom: 12px;
+      color: var(--nav);
+    }
+
+    .section-head p {
+      max-width: 760px;
+      margin: 0 auto;
+      color: var(--muted);
+      font-size: 1.05rem;
+    }
+
+    .section-head::after {
+      content: "";
+      display: block;
+      width: 72px;
+      height: 3px;
+      background: var(--accent-2);
+      margin: 18px auto 0;
+      border-radius: 999px;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 24px;
+    }
+
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 10px 26px var(--shadow);
+      transition: transform .25s ease, box-shadow .25s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 16px 34px rgba(0, 0, 0, 0.14);
+    }
+
+    .card img {
+      width: 100%;
+      height: 230px;
+      object-fit: cover;
+    }
+
+    .card-body {
+      padding: 24px;
+    }
+
+    .card h3 {
+      font-size: 1.45rem;
+      margin-bottom: 10px;
+      color: var(--nav);
+    }
+
+    .card p {
+      color: var(--muted);
+    }
+
+    .mission {
+      background: var(--nav);
+      color: #fff;
+      text-align: center;
+    }
+
+    .mission h2 {
+      color: #fff;
+      margin-bottom: 14px;
+      font-size: clamp(1.8rem, 3vw, 2.8rem);
+    }
+
+    .mission p {
+      max-width: 860px;
+      margin: 0 auto;
+      color: #d7ded7;
+      font-size: 1.15rem;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 14px;
+    }
+
+    .thumb {
+      position: relative;
+      overflow: hidden;
+      border-radius: 14px;
+      aspect-ratio: 4 / 3;
+      cursor: zoom-in;
+      border: none;
+      padding: 0;
+      background: none;
+      box-shadow: 0 10px 22px rgba(0,0,0,0.08);
+    }
+
+    .thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform .45s ease;
+    }
+
+    .thumb:hover img,
+    .thumb:focus-visible img {
+      transform: scale(1.08);
+    }
+
+    .thumb:focus-visible {
+      outline: 3px solid var(--accent-2);
+      outline-offset: 4px;
+    }
+
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.92);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 100;
+      padding: 20px;
+    }
+
+    .lightbox.open { display: flex; }
+
+    .lightbox-inner {
+      position: relative;
+      max-width: 92vw;
+      max-height: 90vh;
+    }
+
+    .lightbox img {
+      max-width: 92vw;
+      max-height: 90vh;
+      border-radius: 12px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.35);
+    }
+
+    .lb-btn {
+      position: absolute;
+      width: 46px;
+      height: 46px;
+      border-radius: 50%;
+      border: none;
+      background: rgba(255,255,255,0.18);
+      color: #fff;
+      font-size: 1.8rem;
+      cursor: pointer;
+    }
+
+    .lb-btn:hover { background: var(--accent-2); }
+    .lb-close { top: -14px; right: -14px; }
+    .lb-prev { left: -62px; top: 50%; transform: translateY(-50%); }
+    .lb-next { right: -62px; top: 50%; transform: translateY(-50%); }
+
+    .contact {
+      background: #eef1ec;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 40px;
+      align-items: start;
+    }
+
+    .info {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 28px;
+      box-shadow: 0 10px 24px rgba(0,0,0,0.06);
+    }
+
+    .info h3 {
+      font-size: 1.5rem;
+      color: var(--nav);
+      margin-bottom: 10px;
+    }
+
+    .info p {
+      color: var(--muted);
+      margin-bottom: 16px;
+    }
+
+    .hours {
+      margin-top: 24px;
+      display: grid;
+      gap: 8px;
+    }
+
+    .hours div {
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      padding: 8px 0;
+      border-bottom: 1px solid var(--border);
+      color: var(--text);
+    }
+
+    .form-wrap {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 30px;
+      box-shadow: 0 10px 24px rgba(0,0,0,0.06);
+    }
+
+    form {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .field {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .full {
+      grid-column: 1 / -1;
+    }
+
+    label {
+      font-size: 0.92rem;
+      font-weight: 700;
+      color: var(--nav);
+    }
+
+    input,
+    textarea {
+      width: 100%;
+      padding: 13px 14px;
+      border: 1.5px solid #ccd5cd;
+      border-radius: 10px;
+      background: #fff;
+      color: var(--text);
+      transition: border-color .2s ease, box-shadow .2s ease;
+    }
+
+    input:focus,
+    textarea:focus {
+      outline: none;
+      border-color: var(--accent);
+      box-shadow: 0 0 0 4px rgba(107, 143, 113, 0.12);
+    }
+
+    textarea {
+      min-height: 160px;
+      resize: vertical;
+    }
+
+    .hp {
+      position: absolute;
+      left: -9999px;
+    }
+
+    .submit-wrap {
+      grid-column: 1 / -1;
+      display: flex;
+      justify-content: flex-start;
+      gap: 12px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    footer {
+  background: #1a2320;
+  color: #93a19a;
+  text-align: center;
+  padding: 48px 16px 28px;
+  font-size: 0.92rem;
+}
+
+.follow h3 {
+  font-family: "Playfair Display", serif;
+  color: #fff;
+  font-size: 1.6rem;
+  margin-bottom: 8px;
+}
+
+.follow p {
+  color: #93a19a;
+  margin-bottom: 20px;
+}
+
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.social-links a {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 22px;
+  border-radius: 999px;
+  border: 1.5px solid rgba(255,255,255,0.3);
+  color: #fff;
+  font-weight: 600;
+  transition: background .2s ease, border-color .2s ease, transform .2s ease;
+}
+
+.social-links a:hover {
+  background: var(--accent-2);
+  border-color: var(--accent-2);
+  transform: translateY(-2px);
+}
+
+.social-links svg {
+  width: 20px;
+  height: 20px;
+  fill: currentColor;
+}
+
+.copyright {
+  margin-top: 36px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255,255,255,0.1);
+}
+
+    @media (max-width: 920px) {
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      form {
+        grid-template-columns: 1fr;
+      }
+
+      .lb-prev { left: 8px; }
+      .lb-next { right: 8px; }
+    }
+
+    @media (max-width: 720px) {
+      .nav {
+        gap: 16px;
+      }
+
+      .hero-content {
+        padding-top: 120px;
+      }
+
+      .hero h1 {
+        font-size: clamp(2.1rem, 10vw, 3.5rem);
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after {
+        transition: none !important;
+        animation: none !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <a class="brand" href="#top">United Front K9</a>
+      <nav class="nav" aria-label="Main navigation">
+        <a href="#services">Services</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero" id="top">
+    <video autoplay muted loop playsinline poster="images/hero-poster.jpg">
+      <source src="Video/dog_running.mp4" type="video/mp4" />
+    </video>
+    <div class="hero-content">
+      <h1>Proven Training for <em>You</em>, Your Pet, or Your K9 Partner</h1>
+      <div class="divider"></div>
+      <p>Obedience &bull; Control &bull; Odor Detection &bull; Issue Resolution</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#contact">Request Training</a>
+        <a class="btn btn-secondary" href="#services">Learn More</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="services">
+    <div class="container">
+      <div class="section-head">
+        <h2>What We Do</h2>
+        <p>We provide individualized training and support designed to meet each dog’s unique needs. From foundational obedience and behavior improvement to focused scent work and detection training, we create programs that are practical, effective, and centered around long-term success. Our approach is built on structure, patience, and respect, with a strong emphasis on helping dogs and handlers work together with confidence.</p>
+      </div>
+
+      <div class="cards">
+        <article class="card">
+          <img src="image/IMG_3309.jpg" alt="Dog in obedience training" loading="lazy" />
+          <div class="card-body">
+            <h3>Obedience &amp; Control</h3>
+            <p>A well-trained dog is a more confident dog. We help establish structure, reinforce clear expectations, and build reliable obedience that carries over into everyday life. Our training is designed to strengthen communication, improve responsiveness, and create a balanced relationship between you and your dog.</p>
+          </div>
+        </article>
+
+        <article class="card">
+          <img src="image/IMG_9243 2.JPG" alt="Dog relaxing after behavior training" loading="lazy" />
+          <div class="card-body">
+            <h3>Issue Resolution</h3>
+            <p>Every dog faces challenges, and many behavior issues can be improved with the right guidance. Whether your dog struggles with pulling, reactivity, distraction, anxiety, or inconsistent manners, we work with you to identify the cause and develop a clear, practical plan that supports real progress.</p>
+          </div>
+        </article>
+
+        <article class="card">
+          <img src="image/IMG_5552 2.jpg" alt="Dog Getting ready for scent work" loading="lazy" />
+          <div class="card-body">
+            <h3>Detection &amp; Scent Work</h3>
+            <p>Scent work is one of the most natural and rewarding activities for dogs. We offer training for detection work, scent development, and nose-driven tasks that engage your dog mentally and physically. Whether you’re building a working dog or simply looking for a focused outlet, scent work is a powerful way to develop drive, discipline, and purpose.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="mission">
+    <div class="container">
+      <h2>Our Mission</h2>
+      <p>At United Front K9, our mission is to help build better relationships between dogs and the people who love them. Through thoughtful training, clear communication, and practical real-world solutions, we work to improve obedience, confidence, and trust. Whether we are helping a family companion, a working dog, or a future service partner, our goal is to create lasting results that strengthen the bond between handler and dog.</p>
+    </div>
+  </section>
+
+  <section id="gallery">
+    <div class="container">
+      <div class="section-head">
+        <h2>Gallery</h2>
+        <p>Click or tap any photo to enlarge.</p>
+      </div>
+
+      <div class="gallery">
+        <button class="thumb" aria-label="Enlarge photo 1"><img src="image/78571357912__A8CFDEB4-D7F7-4439-AFB7-75535FE3ABA6 2.jpg" alt="UFK9 gallery image 1" loading="lazy" /></button>
+        <button class="thumb" aria-label="Enlarge photo 2"><img src="image/IMG_3550.JPG" alt="UFK9 gallery image 2" loading="lazy" /></button>
+        <button class="thumb" aria-label="Enlarge photo 3"><img src="image/IMG_4266.jpg" alt="UFK9 gallery image 3" loading="lazy" /></button>
+        <button class="thumb" aria-label="Enlarge photo 4"><img src="image/IMG_4270.jpg" alt="UFK9 gallery image 4" loading="lazy" /></button>
+        <button class="thumb" aria-label="Enlarge photo 5"><img src="image/IMG_5056.JPG" alt="UFK9 gallery image 5" loading="lazy" /></button>
+        <button class="thumb" aria-label="Enlarge photo 6"><img src="image/IMG_6090.jpg" alt="UFK9 gallery image 6" loading="lazy" /></button>
+        <button class="thumb" aria-label="Enlarge photo 7"><img src="image/88FD7ED7-0054-4D48-9E97-79AE33EDF33A.JPG" alt="UFK9 gallery image 7" loading="lazy" /></button>
+        <button class="thumb" aria-label="Enlarge photo 8"><img src="image/IMG_3842.jpg" alt="UFK9 gallery image 8" loading="lazy" /></button>
+        <button class="thumb" aria-label="Enlarge photo 9"><img src="image/IMG_4102.jpg" alt="UFK9 gallery image 9" loading="lazy" /></button>
+        <button class="thumb" aria-label="Enlarge photo 10"><img src="image/IMG_5479.jpg" alt="UFK9 gallery image 10" loading="lazy" /></button>
+        <button class="thumb" aria-label="Enlarge photo 11"><img src="image/IMG_8991.JPG" alt="UFK9 gallery image 11" loading="lazy" /></button>
+        <button class="thumb" aria-label="Enlarge photo 12"><img src="image/IMG_9992.JPG" alt="UFK9 gallery image 12" loading="lazy" /></button>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact" id="contact">
+    <div class="container">
+      <div class="section-head">
+        <h2>Contact Us</h2>
+        <p>Tell us a little about your dog and the services you’re requesting.</p>
+      </div>
+
+      <div class="contact-grid">
+        <div class="info">
+          <h3>United Front K9</h3>
+          <p>Florissant, CO</p>
+
+          <h3>Hours</h3>
+          <div class="hours">
+            <div><span>Mon – Fri</span><span>9:00 am – 5:00 pm</span></div>
+            <div><span>Sat</span><span>Closed</span></div>
+            <div><span>Sun</span><span>Closed</span></div>
+          </div>
+        </div>
+
+        <div class="form-wrap">
+          <form action="https://formsubmit.co/info@ufk9.com" method="POST">
+            <input type="hidden" name="_cc" value="optional2@example.com,optional3@example.com">
+            <input type="hidden" name="_subject" value="New UFK9 Inquiry">
+            <input type="hidden" name="_autoresponse" value="Thank you for contacting United Front K9. We have received your request and will get back to you as soon as possible.">
+            <input type="hidden" name="_captcha" value="true">
+            <input type="hidden" name="_next" value="https://YOUR-WEBSITE.com/thanks.html">
+            <input type="text" name="_honey" class="hp" tabindex="-1" autocomplete="off" />
+
+            <div class="field">
+              <label for="first_name">First Name *</label>
+              <input type="text" id="first_name" name="first_name" required />
+            </div>
+
+            <div class="field">
+              <label for="last_name">Last Name *</label>
+              <input type="text" id="last_name" name="last_name" required />
+            </div>
+
+            <div class="field">
+              <label for="email">Email *</label>
+              <input type="email" id="email" name="email" required />
+            </div>
+
+            <div class="field">
+              <label for="phone">Phone Number *</label>
+              <input type="tel" id="phone" name="phone" required />
+            </div>
+
+            <div class="field full">
+              <label for="city">City *</label>
+              <input type="text" id="city" name="city" required />
+            </div>
+
+            <div class="field full">
+              <label for="message">Services Requested *</label>
+              <textarea id="message" name="message" placeholder="Tell us exactly what services you need..." required></textarea>
+            </div>
+
+            <div class="submit-wrap">
+              <button class="btn btn-primary" type="submit">Submit</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+  <div class="follow">
+    <h3>Follow Us</h3>
+    <p>See training updates, working dogs, and veteran service dog stories.</p>
+
+    <div class="social-links">
+      <a href="https://www.facebook.com/https://www.facebook.com/share/1dyeYMaYjf/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" aria-label="United Front K9 on Facebook">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M24 12.07C24 5.4 18.63 0 12 0S0 5.4 0 12.07C0 18.1 4.39 23.1 10.13 24v-8.44H7.08v-3.49h3.05V9.41c0-3.02 1.79-4.69 4.53-4.69 1.31 0 2.69.24 2.69.24v2.97h-1.52c-1.49 0-1.96.93-1.96 1.88v2.26h3.33l-.53 3.49h-2.8V24C19.61 23.1 24 18.1 24 12.07z"/></svg>
+        Facebook
+      </a>
+
+      <a href="https://www.instagram.com/https://www.instagram.com/unitedfrontk9?psln=ZjU0NWljczE5MWQ3&utm_source=qr" target="_blank" rel="noopener noreferrer" aria-label="United Front K9 on Instagram">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 3.25.15 4.77 1.69 4.92 4.92.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.15 3.23-1.66 4.77-4.92 4.92-1.27.06-1.64.07-4.85.07s-3.58-.01-4.85-.07c-3.26-.15-4.77-1.7-4.92-4.92C2.17 15.58 2.16 15.2 2.16 12s.01-3.58.07-4.85C2.38 3.92 3.9 2.38 7.15 2.23 8.42 2.17 8.8 2.16 12 2.16zM12 0C8.74 0 8.33.01 7.05.07 2.7.27.27 2.69.07 7.05.01 8.33 0 8.74 0 12s.01 3.67.07 4.95c.2 4.36 2.62 6.78 6.98 6.98C8.33 23.99 8.74 24 12 24s3.67-.01 4.95-.07c4.35-.2 6.78-2.62 6.98-6.98.06-1.28.07-1.69.07-4.95s-.01-3.67-.07-4.95c-.2-4.35-2.62-6.78-6.98-6.98C15.67.01 15.26 0 12 0zm0 5.84a6.16 6.16 0 100 12.32 6.16 6.16 0 000-12.32zM12 16a4 4 0 110-8 4 4 0 010 8zm6.4-11.85a1.44 1.44 0 100 2.88 1.44 1.44 0 000-2.88z"/></svg>
+        Instagram
+      </a>
+    </div>
+  </div>
+
+  <div class="copyright">&copy; 2026 United Front K9 &middot; Florissant, CO</div>
+</footer>
+
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Image viewer">
+    <div class="lightbox-inner">
+      <button class="lb-btn lb-close" aria-label="Close">&times;</button>
+      <button class="lb-btn lb-prev" aria-label="Previous image">&#8249;</button>
+      <img src="" alt="" />
+      <button class="lb-btn lb-next" aria-label="Next image">&#8250;</button>
+    </div>
+  </div>
+
+  <script>
+    const thumbs = [...document.querySelectorAll(".thumb img")];
+    const lightbox = document.getElementById("lightbox");
+    const lightboxImg = lightbox.querySelector("img");
+    const btnClose = lightbox.querySelector(".lb-close");
+    const btnPrev = lightbox.querySelector(".lb-prev");
+    const btnNext = lightbox.querySelector(".lb-next");
+    let currentIndex = 0;
+
+    function openLightbox(index) {
+      currentIndex = index;
+      lightboxImg.src = thumbs[currentIndex].src;
+      lightboxImg.alt = thumbs[currentIndex].alt;
+      lightbox.classList.add("open");
+    }
+
+    function closeLightbox() {
+      lightbox.classList.remove("open");
+    }
+
+    function showPrev() {
+      openLightbox((currentIndex - 1 + thumbs.length) % thumbs.length);
+    }
+
+    function showNext() {
+      openLightbox((currentIndex + 1) % thumbs.length);
+    }
+
+    thumbs.forEach((img, index) => {
+      img.closest(".thumb").addEventListener("click", () => openLightbox(index));
+    });
+
+    btnClose.addEventListener("click", closeLightbox);
+    btnPrev.addEventListener("click", (e) => { e.stopPropagation(); showPrev(); });
+    btnNext.addEventListener("click", (e) => { e.stopPropagation(); showNext(); });
+
+    lightbox.addEventListener("click", (e) => {
+      if (e.target === lightbox) closeLightbox();
+    });
+
+    document.addEventListener("keydown", (e) => {
+      if (!lightbox.classList.contains("open")) return;
+      if (e.key === "Escape") closeLightbox();
+      if (e.key === "ArrowLeft") showPrev();
+      if (e.key === "ArrowRight") showNext();
+    });
+  </script>
+</body>
+</html>
